@@ -13,12 +13,6 @@ public class Player extends Character implements KeyListener{
 		if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
 			vx=5;
 		}
-		if(e.getKeyCode()==KeyEvent.VK_SPACE) {
-			GameWorld.playerBulles.add(
-					new PlayerBullet(x,y,0,-10));
-			System.out.println("弾の数="+
-					GameWorld.playerBulles.size());
-		}
 	}
 	public void keyReleased(KeyEvent e) {
 		if (e.getKeyCode()==KeyEvent.VK_LEFT) {
