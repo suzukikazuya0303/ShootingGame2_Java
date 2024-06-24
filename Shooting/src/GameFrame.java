@@ -15,6 +15,13 @@ public class GameFrame extends MyFrame{
 			
 			movePlayerBullets();
 			moveEnemies();
+			for(int i = 0; i < GameWorld.enemies.size();i++) {
+				Enemy e = GameWorld.enemies.get(i);
+				if(e.x==GameWorld.player.x &&
+				   e.y==GameWorld.player.y) {
+					System.out.println("やられた！");
+				}
+			}
 			sleep(0.03);
 			
 		}
