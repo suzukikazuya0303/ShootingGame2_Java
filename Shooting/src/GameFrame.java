@@ -5,6 +5,9 @@ public class GameFrame extends MyFrame{
 		GameWorld.player = new Player(100,300,0,0);
 		GameWorld.player.draw(this);
 		addKeyListener(GameWorld.player);
+		while(true) {
+			GameWorld.player.x = 100;
+			GameWorld.player.y = 300;
 		GameWorld.playerBullets=new Vector<PlayerBullet>();
 		GameWorld.enemies=new Vector<Enemy>();
 		GameWorld.enemies.add(new EnemyBase(100,50,1,0));
@@ -30,8 +33,8 @@ public class GameFrame extends MyFrame{
 				}
 			}
 			sleep(0.03);
-			
 		}
+	}
 	}
 	public void checkPlayerAndEnemies() {
 		for(int i = 0; i < GameWorld.enemies.size();i++) {
