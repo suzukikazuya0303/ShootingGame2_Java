@@ -19,6 +19,9 @@ public class GameFrame extends MyFrame{
 			if(GameWorld.enemies.size()==0) {
 				setColor(0,0,0);
 				drawString("クリア！",100,200,40);
+			}else if(GameWorld.player.y<0){
+				setColor(0,0,0);
+				drawString("ゲームオーバー！",50,200,40);
 			}
 			sleep(0.03);
 			
@@ -80,7 +83,7 @@ public class GameFrame extends MyFrame{
 			if(e.y>400) {
 				GameWorld.enemies.remove(i);
 			}else {
-				i++;
+				i++; 
 			}
 		}
 		
