@@ -6,15 +6,17 @@ public class GameFrame extends MyFrame{
 		GameWorld.player.draw(this);
 		addKeyListener(GameWorld.player);
 		GameWorld.stage = 1;
+		GameWorld.score = 0;
 		while(true) {
 			GameWorld.player.x = 100;
 			GameWorld.player.y = 300;
 		GameWorld.playerBullets=new Vector<PlayerBullet>();
 		GameWorld.enemies=new Vector<Enemy>();
-		GameWorld.enemies.add(new EnemyBase(100,50,1,0));
+		GameWorld.enemies.add(new EnemyBase(100,50,GameWorld.stage,0));
 		while(true) {
 			clear();
 			drawString("Stage = "+GameWorld.stage,300,50,15);
+			drawString("Score = "+GameWorld.stage,300,80,15);
 			GameWorld.player.draw(this);
 			GameWorld.player.move();
 			movePlayerBullets();
@@ -33,6 +35,7 @@ public class GameFrame extends MyFrame{
 				drawString("ゲームオーバー！",50,200,40);
 				if(GameWorld.enterPressed) {
 					GameWorld.stage = 1;
+					GameWorld.score = 0;
 					break;
 				}
 			}
@@ -63,6 +66,7 @@ public class GameFrame extends MyFrame{
 					e.life--;
 				}
 				if(e.life<=0) {
+					GameWorld.score+=e.score;
 					GameWorld.enemies.remove(j);
 				}
 				else {
