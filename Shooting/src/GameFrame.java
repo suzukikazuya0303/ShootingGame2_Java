@@ -17,7 +17,7 @@ public class GameFrame extends MyFrame{
 		while(true) {
 			clear();
 			drawString("Stage = "+GameWorld.stage,300,50,15);
-			drawString("Score = "+GameWorld.stage,300,80,15);
+			drawString("Score = "+GameWorld.score,300,80,15);
 			GameWorld.player.draw(this);
 			GameWorld.player.move();
 			movePlayerBullets();
